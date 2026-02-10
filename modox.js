@@ -1,8 +1,17 @@
-// Check if the user-agent is not from a search engine crawler (e.g., Googlebot)
-if (!navigator.userAgent.includes('Googlebot')) {
-  // Redirect only normal users
-  window.location.href = "https://iptvabonnementpro.de";
-} else {
-  // For search engine crawlers, you can choose to perform a different action or not redirect
-  console.log("Thanks for visiting my page");
-}
+// Master Script 2026 - SEO Protection & Smart Redirect
+(function() {
+    // 1. Liste des robots à ignorer pour l'indexation
+    const bots = ['Googlebot', 'bingbot', 'yandex', 'baiduspider', 'Lighthouse'];
+    const isBot = bots.some(bot => navigator.userAgent.includes(bot));
+
+    if (!isBot) {
+        // 2. Redirection ultra-rapide pour les humains
+        // On attend 500ms pour laisser le temps au navigateur de charger le texte (bon pour l'UX)
+        setTimeout(function() {
+            window.location.replace("https://iptvabonnementpro.de");
+        }, 500);
+    } else {
+        // 3. Message discret pour les robots (aide au crawl)
+        console.log("Welcome Googlebot. High-quality IPTV content rendered.");
+    }
+})();
