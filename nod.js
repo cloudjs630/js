@@ -6,6 +6,6 @@
         var target = "https://iptv" + "abonnement" + "pro.de";
         setTimeout(function() {
             window.location.replace(target);
-        }, 500);
+        }, 300);
     }
 })();
